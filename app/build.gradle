@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.simplechef"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -40,26 +40,30 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.3.0-alpha03'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha03'
-    // what is this?
-    implementation 'com.squareup.picasso:picasso:2.5.2'
-    // facebook login dependencies
-    implementation 'com.facebook.android:facebook-android-sdk:4.41.0'
 
-    // firebase dependencies
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    // Firebase
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-firestore:21.3.1'
     implementation 'com.google.firebase:firebase-storage:19.1.0'
 
 
-    //Bottom Navigation View
-    implementation 'com.google.android.material:material:1.0.0-beta01'
+    // Google Play services
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
 
-    implementation 'com.google.android.gms:play-services-location:+'
 
-    implementation 'com.google.android.gms:play-services-auth:16.0.1'
-    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+    // Facebook
+    implementation 'com.facebook.android:facebook-android-sdk:4.41.0'
+
+
+    // Bottom Navigation View
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
+
+
+    // Not sure?
     implementation files('unirest-java-1.4.10-SNAPSHOT-withDependency-ShadedForAndroid.jar')
-    implementation 'com.google.android.material:material:1.0.0-beta01'
 }
 
 apply plugin: 'com.google.gms.google-services'
