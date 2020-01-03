@@ -2,8 +2,10 @@ package com.example.simplechef.ui.recipe_view;
 
 import android.net.Uri;
 import android.os.Bundle;
+/*
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.core.app.Fragment;
+*/
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +20,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import org.w3c.dom.Text;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 public class ViewDescriptionFragment extends Fragment {
 

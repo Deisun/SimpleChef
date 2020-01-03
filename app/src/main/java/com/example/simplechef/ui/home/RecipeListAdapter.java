@@ -2,8 +2,10 @@ package com.example.simplechef.ui.home;
 
 import android.content.Context;
 import android.net.Uri;
+/*
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+*/
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,9 @@ import java.lang.reflect.Array;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeHolder> implements Filterable{
     private final static String TAG = "RecipeListAdapter";

@@ -1,7 +1,9 @@
 package com.example.simplechef.ui.recipe_view;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+/*
+import androidx.core.app.Fragment;
+*/
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,7 +15,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
-import com.google.api.LogDescriptor;
+
+import androidx.fragment.app.Fragment;
 
 public class ViewIngredientsFragment extends Fragment {
 
