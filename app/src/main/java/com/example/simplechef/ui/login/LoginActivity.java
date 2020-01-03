@@ -2,10 +2,6 @@ package com.example.simplechef.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-/*
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-*/
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.simplechef.R;
 import com.example.simplechef.ui.home.HomeActivity;
-import com.example.simplechef.util.GlideApp;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -149,11 +144,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setupImages() {
         // Glide handles auto-scaling images down to proper resolution
+
+/*
         GlideApp
                 .with(this)
                 .load(R.drawable.login_background)
                 .centerCrop()
                 .into(imageViewBackground);
+*/
     }
 
     public void signInGoogle() {

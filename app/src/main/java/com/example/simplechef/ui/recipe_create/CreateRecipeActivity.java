@@ -35,7 +35,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.simplechef.Ingredient;
 import com.example.simplechef.R;
 import com.example.simplechef.RecipeAPI;
@@ -540,10 +539,12 @@ public class CreateRecipeActivity extends AppCompatActivity {
             imageViewAddImage.setMaxWidth(20);
             imageViewAddImage.setMaxHeight(20);
             // glide will follow imageview's width, height and scaleType
+/*
             Glide.with(this)
                     .load(imageURI)
                     .centerCrop()
                     .into(imageViewAddImage);
+*/
             try {
                 image = MediaStore.Images.Media.getBitmap(context.getContentResolver(),imageURI);
             } catch (IOException e) {
@@ -554,10 +555,12 @@ public class CreateRecipeActivity extends AppCompatActivity {
         }
         else {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+/*
             Glide.with(this)
                     .load(bitmap)
                     .centerCrop()
                     .into(imageViewAddImage);
+*/
             image = bitmap;
         }
     }

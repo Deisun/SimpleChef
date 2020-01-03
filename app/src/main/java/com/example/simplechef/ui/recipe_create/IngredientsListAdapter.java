@@ -9,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.simplechef.Ingredient;
 import com.example.simplechef.R;
 
@@ -51,10 +50,12 @@ public class IngredientsListAdapter extends RecyclerView.Adapter<IngredientsList
     public void onBindViewHolder(@NonNull IngredientsViewHolder ingredientsViewHolder, int position) {
         Log.d(TAG, "onBindViewHolder: called");
         Ingredient ingredient = mIngredientItems.get(position);
+/*
         Glide.with(context)
                 .load(ingredient.getImage())
                 .centerCrop()
                 .into(ingredientsViewHolder.imageButtonIngredientIcon);
+*/
         Log.d("SUCCESS", ingredient.getImage().toString());
         ingredientsViewHolder.ingredientName.setText(ingredient.getName());
         ingredientsViewHolder.ingredientQuantity.setText(ingredient.getQuantity());

@@ -16,18 +16,13 @@ import android.widget.TextView;
 import android.widget.Filter;
 import android.widget.Filterable;
 
-import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
 import com.example.simplechef.RecipeClass;
-import com.example.simplechef.ui.Recipe;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
-import java.lang.reflect.Array;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,10 +93,12 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         recipePictureReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+/*
                 Glide.with(context)
                         .load(uri)
                         .centerCrop()
                         .into(holder.recipeImage);
+*/
                 Log.d("SUCCESS", uri.toString());
 
 

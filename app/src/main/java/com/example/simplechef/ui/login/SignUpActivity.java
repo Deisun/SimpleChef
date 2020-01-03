@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.simplechef.R;
-import com.example.simplechef.util.GlideApp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,8 +19,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -70,11 +67,13 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void setupImages() {
         // Glide handles auto-scaling images down to proper resolution
+/*
         GlideApp
                 .with(this)
                 .load(R.drawable.signup_background)
                 .centerCrop()
                 .into(imageViewBackground);
+*/
     }
 
     private void setupUiElements() {
