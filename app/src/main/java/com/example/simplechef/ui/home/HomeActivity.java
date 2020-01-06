@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         context = this;
-        Activity activity = (Activity) getApplicationContext();
+        // Activity activity = (Activity) getApplicationContext();
         view = ((HomeActivity) context).view;
 
         viewPager = findViewById(R.id.pager);
@@ -125,28 +125,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        /*FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        CollectionReference reference = db.collection("Recipes");
-        Query query = reference.whereEqualTo("name", editTextSearchPopUp.getText().toString());
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for (QueryDocumentSnapshot document : task.getResult()){
-                        RecipeClass recipe = document.toObject(RecipeClass.class);
-                        Log.d(TAG, "onComplete: " + recipe.getName());
-                        Intent intent = recipe.toIntent(getApplicationContext(), ViewRecipeActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                }else{
-                    Toast toast = Toast.makeText(context, "Search Error", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-
-            }
-        });*/
 
     }
     @Override
