@@ -1,17 +1,8 @@
 package com.example.simplechef.ui.home;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,23 +10,19 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.simplechef.R;
-import com.example.simplechef.RecipeClass;
 import com.example.simplechef.ui.account.AccountActivity;
 import com.example.simplechef.ui.login.LoginActivity;
 import com.example.simplechef.ui.recipe_create.CreateRecipeActivity;
-import com.example.simplechef.ui.recipe_create.IngredientsListAdapter;
-import com.example.simplechef.ui.recipe_view.ViewRecipeActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -55,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         context = this;
-        Activity activity = (Activity) getApplicationContext();
+        // Activity activity = (Activity) getApplicationContext();
         view = ((HomeActivity) context).view;
 
         viewPager = findViewById(R.id.pager);
@@ -126,28 +113,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        /*FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        CollectionReference reference = db.collection("Recipes");
-        Query query = reference.whereEqualTo("name", editTextSearchPopUp.getText().toString());
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for (QueryDocumentSnapshot document : task.getResult()){
-                        RecipeClass recipe = document.toObject(RecipeClass.class);
-                        Log.d(TAG, "onComplete: " + recipe.getName());
-                        Intent intent = recipe.toIntent(getApplicationContext(), ViewRecipeActivity.class);
-                        startActivity(intent);
-                        break;
-                    }
-                }else{
-                    Toast toast = Toast.makeText(context, "Search Error", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-
-            }
-        });*/
 
     }
     @Override

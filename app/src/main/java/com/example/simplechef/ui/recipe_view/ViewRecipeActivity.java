@@ -1,12 +1,16 @@
 package com.example.simplechef.ui.recipe_view;
 
 import android.content.Intent;
+/*
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import androidx.core.app.Fragment;
+import androidx.core.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+*/
 import android.os.Bundle;
+/*
 import android.support.v7.widget.Toolbar;
+*/
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,9 +21,12 @@ import com.example.simplechef.R;
 import com.example.simplechef.ui.account.AccountActivity;
 import com.example.simplechef.ui.home.HomeActivity;
 import com.example.simplechef.ui.login.LoginActivity;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.lang.reflect.Array;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 public class ViewRecipeActivity extends AppCompatActivity {
     private final static String TAG = "ViewRecipeActivity";

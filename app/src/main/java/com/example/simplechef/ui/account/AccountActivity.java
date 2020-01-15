@@ -3,13 +3,8 @@ package com.example.simplechef.ui.account;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -18,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.simplechef.ui.login.LoginActivity;
-import com.example.simplechef.util.GlideApp;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +25,10 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
 public class AccountActivity extends AppCompatActivity {
@@ -94,18 +92,26 @@ public class AccountActivity extends AppCompatActivity {
         // sets photo from URL
         if (mCurrentUser.getPhotoUrl() != null) {
             mPhotoURL = mCurrentUser.getPhotoUrl().toString();
+
+
+/*
             GlideApp
                     .with(this)
                     .load(mPhotoURL)
                     .centerCrop()
                     .into(imageButtonPhoto);
+*/
         } else {
+/*
             GlideApp
                     .with(this)
                     .load(R.drawable.no_photo)
                     .centerCrop()
                     .into(imageButtonPhoto);
+
+ */
         }
+
     }
 
     private void setupToolbar() {
@@ -128,12 +134,14 @@ public class AccountActivity extends AppCompatActivity {
 
     private void setupBGImage() {
         // Glide handles auto-scaling images down to proper resolution
+/*
         GlideApp
                 .with(this)
                 .load(R.drawable.signup_background)
                 .centerCrop()
                 .into(imageViewBackground);
 
+*/
     }
 
     private void addProfilePictureToFirebase(final Bitmap bitmap) {
@@ -157,11 +165,13 @@ public class AccountActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Log.d(TAG, "Success uploading file");
 
+/*
                 GlideApp
                         .with(getApplicationContext())
                         .load(bitmap)
                         .centerCrop()
                         .into(imageButtonPhoto);
+*/
 
 
                 profilePicturesRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

@@ -1,18 +1,20 @@
 package com.example.simplechef.ui.login;
 
+import com.example.simplechef.R;
+import com.example.simplechef.ui.home.HomeActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.simplechef.R;
-import com.example.simplechef.ui.home.HomeActivity;
-import com.example.simplechef.util.GlideApp;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -21,6 +23,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,14 +31,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -44,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogIn, buttonSignUp, buttonGoogleLogin, buttonFacebookLogin;
     private ImageView imageViewBackground;
     private TextView textViewEmail, textViewPassword;
+
     private GoogleSignInClient mGoogleSignInClient;
     private CallbackManager mCallbackManager;
     private static final int RC_SIGN_IN = 9001;
@@ -102,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonSignUp = findViewById(R.id.buttonSignUp);
         textViewEmail = findViewById(R.id.textViewEmail);
         textViewPassword = findViewById(R.id.textViewPassword);
-        imageViewBackground = findViewById(R.id.imageViewBackground);
+        imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
 
         // button listeners
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
@@ -142,12 +149,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setupImages() {
-        // Glide handles auto-scaling images down to proper resolution
+
+        Picasso.get()
+                .load(R.drawable.login_background)
+                .resize(1920,500)
+                .centerInside()
+                .into(imageViewBackground);
+
+
+        //imageViewBackground.setImageResource(R.drawable.login_background);
+/*
         GlideApp
                 .with(this)
                 .load(R.drawable.login_background)
                 .centerCrop()
                 .into(imageViewBackground);
+*/
     }
 
     public void signInGoogle() {
@@ -187,7 +204,8 @@ public class LoginActivity extends AppCompatActivity {
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(this, new
+                        OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
