@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.net.URL;
 import java.text.NumberFormat;
@@ -96,6 +97,12 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         recipePictureReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+
+
+                Picasso.get()
+                        .load(uri)
+                        .into(holder.recipeImage);
+
 
 /*
                 Glide.with(context)

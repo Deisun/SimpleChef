@@ -38,6 +38,7 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 
@@ -108,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonSignUp = findViewById(R.id.buttonSignUp);
         textViewEmail = findViewById(R.id.textViewEmail);
         textViewPassword = findViewById(R.id.textViewPassword);
-        imageViewBackground = findViewById(R.id.imageViewBackground);
+        imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
 
         // button listeners
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
@@ -148,8 +149,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setupImages() {
-        // Glide handles auto-scaling images down to proper resolution
 
+        Picasso.get()
+                .load(R.drawable.login_background)
+                .resize(1920,500)
+                .centerInside()
+                .into(imageViewBackground);
+
+
+        //imageViewBackground.setImageResource(R.drawable.login_background);
 /*
         GlideApp
                 .with(this)
