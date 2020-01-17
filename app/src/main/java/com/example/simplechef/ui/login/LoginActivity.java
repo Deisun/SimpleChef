@@ -1,5 +1,6 @@
 package com.example.simplechef.ui.login;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
 import com.example.simplechef.ui.home.HomeActivity;
 
@@ -109,10 +110,10 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        Picasso.get()
+
+        Glide.with(this)
                 .load(R.drawable.login_background)
-                .resize(1920,500)
-                .centerInside()
+                .centerCrop()
                 .into(imageViewBackground);
 
 

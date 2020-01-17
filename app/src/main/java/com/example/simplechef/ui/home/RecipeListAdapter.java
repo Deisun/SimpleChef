@@ -1,13 +1,7 @@
 package com.example.simplechef.ui.home;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-/*
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-*/
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,15 +12,14 @@ import android.widget.TextView;
 import android.widget.Filter;
 import android.widget.Filterable;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
 import com.example.simplechef.RecipeClass;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
-import java.net.URL;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,17 +92,10 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             public void onSuccess(Uri uri) {
 
 
-                Picasso.get()
-                        .load(uri)
-                        .into(holder.recipeImage);
-
-
-/*
                 Glide.with(context)
                         .load(uri)
                         .centerCrop()
                         .into(holder.recipeImage);
-*/
                 Log.d("SUCCESS", uri.toString());
 
 
