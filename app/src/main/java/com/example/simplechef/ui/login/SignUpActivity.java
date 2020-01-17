@@ -137,7 +137,7 @@ public class SignUpActivity extends AppCompatActivity {
         user.put("email", email);
 
         // Add a new document with a generated ID
-        db.collection("Users")
+        db.collection("UsersDELETE")
                 .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override

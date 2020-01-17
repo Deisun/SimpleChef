@@ -72,6 +72,7 @@ public class AccountActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 Bitmap bitmap = (Bitmap) extras.get("data");
@@ -146,7 +147,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private void addProfilePictureToFirebase(final Bitmap bitmap) {
         final FirebaseStorage storage = FirebaseStorage.getInstance();
-        final StorageReference profilePicturesRef = storage.getReference().child("Users/" + mCurrentUser.getUid() + "/profile_pic.jpg");
+        final StorageReference profilePicturesRef = storage.getReference().child("UsersDELETE/" + mCurrentUser.getUid() + "/profile_pic.jpg");
 
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

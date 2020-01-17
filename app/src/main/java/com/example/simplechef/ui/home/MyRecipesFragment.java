@@ -43,7 +43,7 @@ public class MyRecipesFragment extends Fragment {
     RecyclerView recyclerView;
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     final FirebaseAuth currentUser = FirebaseAuth.getInstance();
-    final DocumentReference docRef = db.collection("Users").document(currentUser.getUid());
+    final DocumentReference docRef = db.collection("UsersDELETE").document(currentUser.getUid());
 
 
 
