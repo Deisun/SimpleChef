@@ -80,7 +80,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         //Getting object for Recipe
         RecipeClass currentRecipe = recipes.get(position);
         holder.recipeName.setText(currentRecipe.getName());
-        holder.recipeCost.setText(formatter.format(currentRecipe.getCost()));
         holder.recipeDescription.setText(currentRecipe.getDescription());
 
 
@@ -135,7 +134,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     }
 
     public class RecipeHolder extends RecyclerView.ViewHolder {
-        public TextView recipeName, recipeCost, recipeDescription;
+        public TextView recipeName, recipeDescription;
         public ImageView recipeImage;
         public ImageButton recipeAddToFavorites;
 
@@ -144,7 +143,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             context = itemView.getContext();
             view = itemView;
             recipeName = itemView.findViewById(R.id.textViewRecipeName);
-            recipeCost = itemView.findViewById(R.id.textViewRecipeCost);
             recipeDescription = itemView.findViewById(R.id.textViewRecipeDescription);
             recipeImage = itemView.findViewById(R.id.imageViewRecipeImage);
             recipeAddToFavorites = itemView.findViewById(R.id.imageButtonFavorite);

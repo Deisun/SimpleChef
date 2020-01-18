@@ -147,7 +147,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private void addProfilePictureToFirebase(final Bitmap bitmap) {
         final FirebaseStorage storage = FirebaseStorage.getInstance();
-        final StorageReference profilePicturesRef = storage.getReference().child("UsersDELETE/" + mCurrentUser.getUid() + "/profile_pic.jpg");
+        final StorageReference profilePicturesRef = storage.getReference().child("Users/" + mCurrentUser.getUid() + "/profile_pic.jpg");
 
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

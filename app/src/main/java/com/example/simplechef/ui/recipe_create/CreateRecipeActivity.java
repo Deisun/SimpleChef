@@ -238,11 +238,11 @@ public class CreateRecipeActivity extends AppCompatActivity {
                     //Mapping Recipe to user
                     final HashMap<String, Object> data = new HashMap<>();
                     data.put("MyRecipes", FieldValue.arrayUnion(recipeID));
-                    final DocumentReference newUserRef = db.collection("UsersDELETE").document(currentUser.getUid());
-                    CollectionReference reference = db.collection("UsersDELETE").document(currentUser.getUid()).collection("MyRecipes");
+                    final DocumentReference newUserRef = db.collection("Users").document(currentUser.getUid());
+                    CollectionReference reference = db.collection("Users").document(currentUser.getUid()).collection("MyRecipes");
 
                     // Create a reference to the document associate with user
-                    DocumentReference docRef = db.collection("UsersDELETE").document(currentUser.getUid());
+                    DocumentReference docRef = db.collection("Users").document(currentUser.getUid());
                     docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {

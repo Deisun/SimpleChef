@@ -37,7 +37,7 @@ public class FavoriteRecipesFragment extends Fragment {
 
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     final FirebaseAuth currentUser = FirebaseAuth.getInstance();
-    final DocumentReference docRef = db.collection("UsersDELETE").document(currentUser.getUid());
+    final DocumentReference docRef = db.collection("Users").document(currentUser.getUid());
     private ArrayList<String> favoritesList = new ArrayList<>();
     private ArrayList<RecipeClass> recipeObject = new ArrayList<>();
     //Recycler View
