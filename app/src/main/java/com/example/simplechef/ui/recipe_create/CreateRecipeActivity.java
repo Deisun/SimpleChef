@@ -414,12 +414,14 @@ public class CreateRecipeActivity extends AppCompatActivity {
             }
         });
 
+/*
         buttonClearAllIngredients.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clearAllIngredients();
             }
         });
+*/
 
     }
 
@@ -488,7 +490,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
 
         //?????
         buttonAddIngredient = (Button) findViewById(R.id.buttonAddIngredient);
-        buttonClearAllIngredients = (Button) findViewById(R.id.buttonClearAllIngredients);
+        //buttonClearAllIngredients = (Button) findViewById(R.id.buttonClearAllIngredients);
         //listIngredient = (LinearLayout) findViewById(R.id.ingredientButtonBar);
 
         //tabs
@@ -496,8 +498,8 @@ public class CreateRecipeActivity extends AppCompatActivity {
         visibleGeneral = (LinearLayout) findViewById(R.id.visibleGeneral);
         tabIngredients = (LinearLayout) findViewById(R.id.linearLayoutIngredients);
         visibleIngredients = (LinearLayout) findViewById(R.id.visibleIngredients);
-        tabDirections = (LinearLayout) findViewById(R.id.linearLayoutDirections);
-        visibleDirections = (LinearLayout)findViewById(R.id.visibleDirections);
+        tabDirections = (LinearLayout) findViewById(R.id.linearLayoutSteps);
+        visibleDirections = (LinearLayout)findViewById(R.id.visibleSteps);
         tabAddImage = (LinearLayout)findViewById(R.id.linearLayoutAddImage);
         visibleAddImage = (LinearLayout)findViewById(R.id.visibleAddImage);
 
