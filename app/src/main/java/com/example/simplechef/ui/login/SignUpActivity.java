@@ -3,6 +3,7 @@ package com.example.simplechef.ui.login;
 import com.bumptech.glide.Glide;
 import com.example.simplechef.ui.home.HomeActivity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class SignUpActivity extends AppCompatActivity {
     private Button buttonSignUp;
@@ -34,6 +36,8 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
     private final static String TAG = "SignUpActivity";
+    private ConstraintLayout constraintLayout;
+    private AnimationDrawable animationDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +47,51 @@ public class SignUpActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        setupToolbar();
-        setupUiElements();
-        setupImages();
+        imageViewBackground = findViewById(R.id.imageViewBackground);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
+        editTextEmail = findViewById(R.id.textViewEmail);
+        editTextPassword =findViewById(R.id.textViewPassword);
+        editTextUsername = findViewById(R.id.editTextUsername);
+
+        constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+        animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+
+        animationDrawable.setEnterFadeDuration(6000);
+        animationDrawable.setExitFadeDuration(6000);
+
+        TextView toolbarTitle = (TextView)findViewById(R.id.toolbarTitle);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        toolbarTitle.setText("Sign Up");
+        setSupportActionBar(toolbar);
+        setTitle(null);
+        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
+            }
+        });
+
+
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String email = editTextEmail.getText().toString();
+                String password = editTextPassword.getText().toString();
+
+
+                createAccount(email, password);
+
+            }
+        });
+
+       // setupToolbar();
     }
 
     private void setupToolbar() {
@@ -61,36 +107,6 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-
-            }
-        });
-    }
-
-    private void setupImages() {
-        // Glide handles auto-scaling images down to proper resolution
-        Glide
-                .with(this)
-                .load(R.drawable.signup_background)
-                .centerCrop()
-                .into(imageViewBackground);
-    }
-
-    private void setupUiElements() {
-        imageViewBackground = findViewById(R.id.imageViewBackground);
-        buttonSignUp = findViewById(R.id.buttonSignUp);
-        editTextEmail = findViewById(R.id.textViewEmail);
-        editTextPassword =findViewById(R.id.textViewPassword);
-        editTextUsername = findViewById(R.id.editTextUsername);
-
-        buttonSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String email = editTextEmail.getText().toString();
-                String password = editTextPassword.getText().toString();
-
-
-                createAccount(email, password);
 
             }
         });
@@ -129,29 +145,6 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
     }
-/*
-    private void addUserToDB(String username, String email) {
-        Map<String, Object> user = new HashMap<>();
-        user.put("username", username);
-        user.put("email", email);
-
-        // Add a new document with a generated ID
-        db.collection("Users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document");
-                    }
-                });
-    }
-*/
 
 
 
@@ -161,6 +154,22 @@ public class SignUpActivity extends AppCompatActivity {
             // send to home activity
             Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
             startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (animationDrawable != null && !animationDrawable.isRunning()) {
+            animationDrawable.start();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (animationDrawable != null && animationDrawable.isRunning()) {
+            animationDrawable.stop();
         }
     }
 }

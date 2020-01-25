@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorAccent">#64FFDA</color>
-    <color name="colorAccentOpacityHalf">#5064FFDA</color>
+    <color name="colorAccent">#8BC34A</color>
+    <color name="colorAccentOpacityHalf">#7E8BFF00</color>
 
-    <color name="colorPrimary">#004136</color>
-    <color name="colorPrimaryDarker">#070606</color>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDarker">#FF9800</color>
 
     <color name="colorBlack">#000000</color>
 
@@ -28,5 +28,15 @@
     <color name="blueOpacityHalf">#503399FF</color>
     <color name="blackOpacityLow">#50FFFFFF</color>
     <color name="lightGrey">#F2F3F5</color>
+
+    <!-- 1st Gradient color -->
+    <color name="colorGreen_A">#4CAF50</color>
+    <color name="colorGreenB">#335233</color>
+    <!-- ./ 1st Gradient color -->
+
+    <!-- 2nd Gradient color -->
+    <color name="colorGreenC">#8BC34A</color>
+    <color name="colorGreenD">#4CAF50</color>
+    <!-- ./ 2nd Gradient color -->
 
 </resources>
