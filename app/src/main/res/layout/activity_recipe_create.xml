@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signup_background"
+    android:background="@color/colorWhite"
     tools:context=".ui.recipe_create.CreateRecipeActivity">
 
 
@@ -48,7 +48,7 @@
                         android:layout_weight=".2"
                         android:alpha=".8"
                         android:background="@drawable/add_circle"
-                        android:backgroundTint="@color/green"
+                        android:backgroundTint="@color/purple"
                         android:text="+ Add Item"
                         android:textColor="@color/colorWhite" />
 
@@ -65,7 +65,7 @@
                         android:paddingBottom="10dp"
                         android:text="General"
                         android:textColor="@color/colorGreyDarkNav"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="normal" />
 
 
@@ -87,31 +87,21 @@
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="35dp"
-                        android:background="@drawable/background_green_opacity_half"
                         android:ems="10"
-                        android:hint="Enter name"
+                        android:hint="Recipe name"
                         android:inputType="textCapSentences"
                         android:maxLength="25"
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:paddingBottom="10dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorBlack"
-                        android:textColorHint="@color/colorWhite"
+                        android:textColor="@color/colorGreyDarkest"
+                        android:textColorHint="@color/colorGrey"
+                        android:background="@color/lightGrey"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="35dp"
-                        android:layout_marginRight="35dp"
-                        android:alpha="1"
-                        android:background="@color/colorPrimaryMain"
-                        android:text="Name"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="20sp" />
                     <EditText
                         android:id="@+id/editTextRecipeDescription"
                         android:layout_width="match_parent"
@@ -120,31 +110,19 @@
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="35dp"
-                        android:background="@drawable/background_green_opacity_half"
                         android:ems="10"
-                        android:hint="Enter Description"
+                        android:hint="Recipe description"
                         android:inputType="text"
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:paddingBottom="10dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorBlack"
-                        android:textColorHint="@color/colorWhite"
+                        android:textColor="@color/colorGreyDarkest"
+                        android:textColorHint="@color/colorGrey"
+                        android:background="@color/lightGrey"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="35dp"
-                        android:layout_marginRight="35dp"
-                        android:layout_marginBottom="10dp"
-                        android:alpha="1"
-                        android:background="@color/colorPrimaryMain"
-                        android:text="Description"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/editTextRecipeCost"
@@ -155,31 +133,20 @@
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="35dp"
-                        android:background="@drawable/background_green_opacity_half"
                         android:ems="10"
-                        android:hint="Enter cost"
+                        android:hint="Recipe cost"
                         android:inputType="numberDecimal"
                         android:maxLength="25"
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:paddingBottom="10dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorBlack"
-                        android:textColorHint="@color/colorWhite"
+                        android:textColor="@color/colorGreyDarkest"
+                        android:textColorHint="@color/colorGrey"
+                        android:background="@color/lightGrey"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="35dp"
-                        android:layout_marginRight="35dp"
-                        android:alpha="1"
-                        android:background="@color/colorPrimaryMain"
-                        android:text="Cost"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/editTextRecipeTime"
@@ -190,32 +157,21 @@
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="35dp"
-                        android:background="@drawable/background_green_opacity_half"
+                        android:layout_marginBottom="10dp"
                         android:ems="10"
-                        android:hint="Enter time"
+                        android:hint="Recipe time"
                         android:inputType="text"
                         android:maxLength="25"
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:paddingBottom="10dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorBlack"
-                        android:textColorHint="@color/colorWhite"
+                        android:textColor="@color/colorGreyDarkest"
+                        android:textColorHint="@color/colorGrey"
+                        android:background="@color/lightGrey"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="35dp"
-                        android:layout_marginRight="35dp"
-                        android:layout_marginBottom="10dp"
-                        android:alpha="1"
-                        android:background="@color/colorPrimaryMain"
-                        android:text="Time"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="20sp" />
 
 
                 </LinearLayout>
@@ -237,7 +193,7 @@
                         android:layout_weight=".2"
                         android:alpha=".8"
                         android:background="@drawable/add_circle"
-                        android:backgroundTint="@color/blue"
+                        android:backgroundTint="@color/purple"
                         android:text="+ Add Item"
                         android:textColor="@color/colorWhite" />
 
@@ -253,7 +209,7 @@
                         android:paddingBottom="10dp"
                         android:text="Ingredients"
                         android:textColor="@color/colorGreyDarkNav"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="normal" />
 
 
@@ -284,29 +240,22 @@
                             <EditText
                                 android:id="@+id/editTextIngredientName"
                                 android:selectAllOnFocus="true"
-                                android:layout_width="150dp"
+                                android:layout_width="220dp"
                                 android:layout_height="wrap_content"
                                 android:alpha="1"
-                                android:background="@drawable/background_green_opacity_half"
-                                android:gravity="center"
                                 android:hint="Ingredient"
                                 android:inputType="text"
-                                android:paddingTop="5dp"
-                                android:paddingBottom="5dp"
-                                android:textColor="@color/colorBlack"
-                                android:textColorHint="@color/colorWhite"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/colorGreyDarkest"
+                                android:textColorHint="@color/colorGrey"
+                                android:background="@color/lightGrey"
+                                android:paddingLeft="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingEnd="10dp"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/ingredientLabel"
-                                android:layout_width="150dp"
-                                android:layout_height="wrap_content"
-                                android:alpha=".8"
-                                android:background="@color/colorPrimaryMain"
-                                android:gravity="center"
-                                android:text="Ingredient"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="16sp" />
 
                         </LinearLayout>
 
@@ -320,31 +269,22 @@
                             <EditText
                                 android:id="@+id/editTextIngredientQuantity"
                                 android:selectAllOnFocus="true"
-                                android:layout_width="110dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:alpha="1"
-                                android:background="@drawable/background_green_opacity_half"
                                 android:hint="Quantity"
                                 android:inputType="text"
-                                android:paddingTop="5dp"
-                                android:paddingBottom="5dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
                                 android:textAlignment="center"
-                                android:textColor="@color/colorBlack"
-                                android:textColorHint="@color/colorWhite"
+                                android:textColor="@color/colorGreyDarkest"
+                                android:textColorHint="@color/colorGrey"
+                                android:background="@color/lightGrey"
+                                android:paddingLeft="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingEnd="10dp"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/textViewQuantity"
-                                android:layout_width="110dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:alpha=".8"
-                                android:background="@color/colorPrimaryMain"
-                                android:text="Quantity"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="16sp" />
 
                         </LinearLayout>
 
@@ -360,12 +300,13 @@
                             <Button
                                 android:id="@+id/buttonAddIngredient"
                                 android:layout_width="65dp"
-                                android:layout_height="30dp"
+                                android:layout_height="44dp"
                                 android:gravity="center"
-                                android:background="@color/blue"
+                                android:background="@color/purple"
                                 android:text="Add"
                                 android:textColor="@color/colorWhite" />
 
+<!--
                             <Button
                                 android:id="@+id/buttonClearAllIngredients"
                                 android:gravity="center"
@@ -374,6 +315,7 @@
                                 android:background="@color/colorGreyDarkest"
                                 android:text="Clear"
                                 android:textColor="@color/colorWhite" />
+-->
                         </LinearLayout>
 
 
@@ -390,7 +332,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayoutDirections"
+                    android:id="@+id/linearLayoutSteps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:elevation="4dp"
@@ -398,7 +340,7 @@
                     android:orientation="horizontal">
 
                     <ImageButton
-                        android:id="@+id/buttonDirections"
+                        android:id="@+id/buttonSteps"
                         android:layout_width="20dp"
                         android:layout_height="25dp"
                         android:layout_gravity="center"
@@ -406,12 +348,12 @@
                         android:layout_weight=".2"
                         android:alpha=".8"
                         android:background="@drawable/add_circle"
-                        android:backgroundTint="@color/colorPrimaryMain"
+                        android:backgroundTint="@color/purple"
                         android:text="+ Add Item"
                         android:textColor="@color/colorWhite" />
 
                     <TextView
-                        android:id="@+id/textViewDirections"
+                        android:id="@+id/textViewSteps"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="8"
@@ -420,16 +362,16 @@
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:text="Directions"
+                        android:text="Recipe steps"
                         android:textColor="@color/colorGreyDarkNav"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="normal" />
 
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/visibleDirections"
+                    android:id="@+id/visibleSteps"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:orientation="vertical"
@@ -444,36 +386,23 @@
 
 
                         <EditText
-                            android:id="@+id/editTextDirections"
+                            android:id="@+id/editTextSteps"
                             android:layout_width="350dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:alpha="1"
-                            android:background="@drawable/background_green_opacity_half"
-                            android:gravity="center"
-                            android:hint=""
+                            android:hint="Recipe steps"
                             android:inputType="textMultiLine"
                             android:paddingStart="10dp"
                             android:paddingLeft="10dp"
-                            android:paddingTop="5dp"
+                            android:paddingTop="10dp"
                             android:paddingEnd="10dp"
                             android:paddingRight="10dp"
-                            android:paddingBottom="5dp"
-                            android:textColor="@color/colorBlack"
-                            android:textColorHint="@color/colorWhite"
-                            android:textSize="15sp" />
+                            android:paddingBottom="10dp"
+                            android:textColor="@color/colorGreyDarkest"
+                            android:textColorHint="@color/colorGrey"
+                            android:background="@color/lightGrey"
+                            />
 
-                        <TextView
-                            android:layout_width="350dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:alpha=".8"
-                            android:background="@color/colorPrimaryMain"
-                            android:gravity="center"
-                            android:text="Directions"
-                            android:textColor="@color/colorWhite"
-
-                            android:textSize="17sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -510,7 +439,7 @@
                         android:paddingBottom="10dp"
                         android:text="Add Image"
                         android:textColor="@color/colorGreyDarkNav"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="normal" />
 
 
@@ -540,7 +469,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:background="@color/blue"
+                                android:background="@color/purple"
                                 android:text="Upload Existing" />
 
                             <Button
@@ -548,7 +477,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:background="@color/colorPrimaryMainOpacityFull"
+                                android:background="@color/colorAccent"
                                 android:text="Take Image" />
                         </LinearLayout>
 
@@ -570,13 +499,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorPrimaryMainOpacityFull"
+                android:background="@color/colorAccent"
                 android:text="@string/Submit"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
                 />
 
         </LinearLayout>
