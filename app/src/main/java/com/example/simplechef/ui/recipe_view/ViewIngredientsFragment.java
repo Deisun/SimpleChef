@@ -60,8 +60,10 @@ public class ViewIngredientsFragment extends Fragment {
 
             TextView quantity = new TextView(getContext());
             quantity.setPadding(10,10,10,10);
+            quantity.setTextColor(getResources().getColor(R.color.colorGreyDarkest));
             TextView name = new TextView(getContext());
             name.setPadding(10,10,10,10);
+            name.setTextColor(getResources().getColor(R.color.colorGreyDarkest));
             ImageView picture = new ImageView(getContext());
             picture.setPadding(10,10,10,10);
             picture.setMaxWidth(90);
