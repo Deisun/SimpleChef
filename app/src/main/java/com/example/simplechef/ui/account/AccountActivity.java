@@ -54,7 +54,7 @@ public class AccountActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
 
-        imageViewBackground = findViewById(R.id.imageViewBackground);
+        //imageViewBackground = findViewById(R.id.imageViewBackground);
         textViewUsername = findViewById(R.id.textViewUsername);
         textViewEmail = findViewById(R.id.textViewEmail);
         imageButtonPhoto = findViewById(R.id.imageButtonProfilePic);

@@ -79,8 +79,8 @@ public class LoginActivity extends AppCompatActivity {
         constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
         animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
 
-        animationDrawable.setEnterFadeDuration(4000);
-        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.setEnterFadeDuration(5000);
+        animationDrawable.setExitFadeDuration(5000);
 
         // button listeners
         buttonLogIn.setOnClickListener(new View.OnClickListener() {

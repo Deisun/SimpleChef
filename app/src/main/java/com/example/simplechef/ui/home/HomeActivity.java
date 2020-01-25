@@ -106,14 +106,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void search(){
         String hold = editTextSearchPopUp.getText().toString();
-
-
         viewPagerAdapter.search(hold,viewPagerAdapter.getSelected());
-
-
-
-
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

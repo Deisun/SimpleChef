@@ -47,7 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        imageViewBackground = findViewById(R.id.imageViewBackground);
+        //imageViewBackground = findViewById(R.id.imageViewBackground);
         buttonSignUp = findViewById(R.id.buttonSignUp);
         editTextEmail = findViewById(R.id.textViewEmail);
         editTextPassword =findViewById(R.id.textViewPassword);
@@ -56,8 +56,8 @@ public class SignUpActivity extends AppCompatActivity {
         constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
         animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
 
-        animationDrawable.setEnterFadeDuration(6000);
-        animationDrawable.setExitFadeDuration(6000);
+        animationDrawable.setEnterFadeDuration(5000);
+        animationDrawable.setExitFadeDuration(5000);
 
         TextView toolbarTitle = (TextView)findViewById(R.id.toolbarTitle);
         Toolbar toolbar = findViewById(R.id.toolbar);
