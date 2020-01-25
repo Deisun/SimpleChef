@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.simplechef.ui.home.HomeActivity;
 import com.example.simplechef.ui.login.LoginActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -67,7 +70,6 @@ public class AccountActivity extends AppCompatActivity {
         });
 
         setupToolbar();
-        setupBGImage();
         setUserDataAndPhoto();
     }
 
@@ -130,15 +132,6 @@ public class AccountActivity extends AppCompatActivity {
         });
     }
 
-    private void setupBGImage() {
-        // Glide handles auto-scaling images down to proper resolution
-        Glide
-                .with(this)
-                .load(R.drawable.signup_background)
-                .centerCrop()
-                .into(imageViewBackground);
-
-    }
 
     private void addProfilePictureToFirebase(final Bitmap bitmap) {
         final FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -181,47 +174,26 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
     }
-/*
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  *//* prefix *//*
-                ".jpg",         *//* suffix *//*
-                storageDir      *//* directory *//*
-        );
 
-        // Save a file: path for use with ACTION_VIEW intents
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        case R.id.action_signout:
+            FirebaseAuth.getInstance().signOut();
+            Intent signOutIntent = new Intent(AccountActivity.this, LoginActivity.class);
+            startActivity(signOutIntent);
+            break;
+        default:
+            break;
     }
+    return true;
+}
 
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-                Log.d(TAG, "Error creating image file");
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_profile, menu);
+        return super.onCreateOptionsMenu(menu);
     }
-*/
-
 }
 
 
