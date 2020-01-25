@@ -27,6 +27,7 @@ import java.util.HashMap;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -79,12 +80,18 @@ public class AllRecipesFragment extends Fragment {
 
                     //Recycler View Init & Data Pass
                     final RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    final RecyclerView.LayoutManager layoutManager;
+
+                    layoutManager = new LinearLayoutManager(getActivity());
+
+                    recyclerView.setLayoutManager(layoutManager);
 
                     Log.d("BEFORE", recipeList.toString());
                     recipeListAdapter = new RecipeListAdapter(recipeList, favoritesList);
                     recyclerView.setAdapter(recipeListAdapter);
 
+                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), 1);
+                    recyclerView.addItemDecoration(dividerItemDecoration);
 
                     recipeListAdapter.setOnItemClickListener(new RecipeListAdapter.OnRecipeItemClickListener() {
                         @Override

@@ -41,7 +41,7 @@
         android:layout_marginLeft="16dp"
 
         android:background="@drawable/home_search_icon"
-        android:backgroundTint="@color/colorDarkBlue"
+        android:backgroundTint="@color/colorGreyDark"
         android:contentDescription="@null"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/editTextSearch"
