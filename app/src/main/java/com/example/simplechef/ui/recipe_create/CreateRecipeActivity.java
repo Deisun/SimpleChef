@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -85,8 +83,6 @@ public class CreateRecipeActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Ingredient> ingredientList;
     private ArrayList<Double> array = new ArrayList<>();
-    LocationManager locationManager;
-    LocationListener locationListener;
 
 
 
@@ -485,7 +481,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
         editTextIngredientName = (EditText) findViewById(R.id.editTextIngredientName);
         editTextRecipeDescription = (EditText)findViewById(R.id.editTextRecipeDescription);
         editTextIngredientQuantity = (EditText) findViewById(R.id.editTextIngredientQuantity);
-        editTextDirections = (EditText) findViewById(R.id.editTextDirections);
+        editTextDirections = (EditText) findViewById(R.id.editTextSteps);
 
         // RecyclerView
         ingredientsRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewIngredients);
