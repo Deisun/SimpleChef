@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
 
 import androidx.fragment.app.Fragment;
@@ -68,12 +69,10 @@ public class ViewIngredientsFragment extends Fragment {
             Log.d("", "onCreateView: " + bundle.getString("IngredientsImage" + i));
             Log.d("Image", "onCreateView: " + bundle.getString("IngredientsImage" + i));
             Log.d("Name", "onCreateView: " + bundle.getString("IngredientsName" + i));
-/*
             Glide.with(getContext())
                     .load(bundle.getString("IngredientsImage" + i))
                     .centerInside()
                     .into(picture);
-*/
             quantity.setText(bundle.getString("IngredientsQuantity" + i));
             quantity.setTextSize(20);
             name.setText(bundle.getString("IngredientsName" + i));
