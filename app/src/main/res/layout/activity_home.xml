@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeActivity"
-    android:background="#000000"
     android:fitsSystemWindows="true"
     android:id="@+id/authenticatedConstraint"
     >
@@ -23,7 +22,7 @@
         android:id="@+id/tabsHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBlack"
+        android:background="@color/colorGreyDarkNav"
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
@@ -33,13 +32,14 @@
         app:tabTextColor="@color/colorWhite" />
 
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBlack"
-        app:itemIconTint="@drawable/bottom_navigation_states"
-        app:itemTextColor="@drawable/bottom_navigation_states"
+        android:layout_height="70dp"
+        android:background="@drawable/bottombar_bg"
+        app:itemIconTint="@color/colorGreyDark"
+        app:itemTextColor="@color/colorGreyDark"
         app:layout_constraintBottom_toBottomOf="@+id/authenticatedConstraint"
         app:menu="@menu/home_bottom_navigation" />
 

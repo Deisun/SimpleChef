@@ -13,7 +13,7 @@
 
     </item>
     <item android:id="@+id/imageViewAdd"
-        android:title="Recipes"
+        android:title="Create"
         android:icon="@drawable/add_circle"
         app:showAsAction="ifRoom|withText" >
 

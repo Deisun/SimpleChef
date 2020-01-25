@@ -25,9 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:gravity="center"
-            android:text="Suzan's Crazy Recipe"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorGreyDarkest"
             android:textSize="20dp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageViewRecipeImage" />

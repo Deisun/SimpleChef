@@ -5,6 +5,7 @@ import com.example.simplechef.R;
 import com.example.simplechef.ui.home.HomeActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -39,7 +41,6 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 
@@ -51,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogIn, buttonSignUp, buttonGoogleLogin, buttonFacebookLogin;
     private ImageView imageViewBackground;
     private TextView textViewEmail, textViewPassword;
+    private ConstraintLayout constraintLayout;
+    private AnimationDrawable animationDrawable;
 
     private GoogleSignInClient mGoogleSignInClient;
     private CallbackManager mCallbackManager;
@@ -71,7 +74,13 @@ public class LoginActivity extends AppCompatActivity {
         buttonSignUp = findViewById(R.id.buttonSignUp);
         textViewEmail = findViewById(R.id.textViewEmail);
         textViewPassword = findViewById(R.id.textViewPassword);
-        imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
+        //imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
+
+        constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+        animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+
+        animationDrawable.setEnterFadeDuration(5000);
+        animationDrawable.setExitFadeDuration(5000);
 
         // button listeners
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = textViewPassword.getText().toString();
 
                 if (email.equals("") || password.equals("")){
-                    Toast.makeText(getApplicationContext(), "Error, make sure you entered data", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }else
                     signInWithEmailandPassword(email, password);
 
@@ -108,13 +117,6 @@ public class LoginActivity extends AppCompatActivity {
                 signInGoogle();
             }
         });
-
-
-
-        Glide.with(this)
-                .load(R.drawable.login_background)
-                .centerCrop()
-                .into(imageViewBackground);
 
 
     }
@@ -267,6 +269,22 @@ public class LoginActivity extends AppCompatActivity {
             // send to home activity
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (animationDrawable != null && !animationDrawable.isRunning()) {
+            animationDrawable.start();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (animationDrawable != null && animationDrawable.isRunning()) {
+            animationDrawable.stop();
         }
     }
 }

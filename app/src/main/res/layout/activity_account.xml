@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
     android:background="@color/colorWhite"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
@@ -12,22 +13,11 @@ tools:context=".ui.account.AccountActivity">
        android:id="@+id/toolbar"
        layout="@layout/toolbar"/>
 
-    <ImageView
-        android:id="@+id/imageViewBackground"
-        android:layout_width="640dp"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/portrait"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageButton
         android:id="@+id/imageButtonProfilePic"
         android:background="@drawable/portrait_borders"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +33,8 @@ tools:context=".ui.account.AccountActivity">
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorGreyDarkest"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonProfilePic" />
@@ -57,7 +48,8 @@ tools:context=".ui.account.AccountActivity">
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorGreyDarkest"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />

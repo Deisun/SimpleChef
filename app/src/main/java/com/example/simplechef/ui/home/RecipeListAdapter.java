@@ -200,12 +200,15 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
                     for (RecipeClass item : recipes) {
                         if (item.getName().toLowerCase().contains(filterPattern.toLowerCase())) {
                             filteredList.add(item);
-                        }/*else if (item.getSchool().toLowerCase().contains(filterPattern.toLowerCase())){
-                            filteredList.add(item);
-                        }*/else{
+                        }
+
+/*
+                        else {
                             extra.add(item);
                         }
+*/
                     }
+
                     for (RecipeClass item : extra){
                         filteredList.add(item);
                     }

@@ -84,7 +84,7 @@
         android:contentDescription="@null"
         android:visibility="visible"
         android:layout_gravity="center_vertical"
-        android:backgroundTint="@color/colorDarkBlue"
+        android:backgroundTint="@color/colorGreyDark"
         app:layout_constraintBottom_toBottomOf="@+id/editTextSearch"
         app:layout_constraintStart_toStartOf="@+id/editTextSearch"
         app:layout_constraintTop_toTopOf="@+id/editTextSearch"

@@ -3,22 +3,25 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorPrimary">@color/colorGrey</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarker</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccentDarker</item>
+
+
+
+        <item name="android:windowTranslucentStatus">true</item>
+
+
     </style>
 
     <style name="ToolbarStyle">
-        <item name="android:background">@color/colorBlack</item>
+        <item name="android:background">@color/colorAccent</item>
     </style>
 
     <style name="MenuStyle">
         <item name="android:background">@color/colorWhite</item>
     </style>
 
-    <style name="SpinnerTheme" parent="android:Widget.Spinner">
-        <item name="android:background">@color/colorWhite</item>
-    </style>
 
 
 
