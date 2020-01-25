@@ -35,6 +35,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.Ingredient;
 import com.example.simplechef.R;
 import com.example.simplechef.RecipeAPI;
@@ -293,12 +294,6 @@ public class CreateRecipeActivity extends AppCompatActivity {
                     if (getAPI.getFoodName() == null) {
                         Toast.makeText(getApplicationContext(), "Ingredient Doesn't exist try again", Toast.LENGTH_SHORT).show();
                     } else {
-                        //ADD HEADERS
-                        //if(count == 0){
-                        //    TextView j = new TextView(context);
-                        //    j.setText("Amount \t Measurement \t Ingredient \t Price ");
-                        //    //listIngredient.addView(j);
-                        //}
 
                         //ask the API for ingredient
 
@@ -314,16 +309,6 @@ public class CreateRecipeActivity extends AppCompatActivity {
                             //onRecipeChangeIngredientListenerVar.onRecipeChangeIngredientListenerMethod(recipe);
                         }
 
-                        //add ingredient to linear layout
-                        //TextView t = new TextView(context);
-                        //t.setText(recipeObject.getIngredientAtIndex(0).getName() + "" + recipeObject.getIngredientAtIndex(0).getPrice().toString());
-                        //t.setPadding(1,10,1,10);
-                        //t.setTextSize(20);
-                        //t.setTextColor(Color.BLACK);
-                        //listIngredient.addView(t);
-                        //count++;
-                        //setObjectsEmpty();
-                        //Log.d("linear layout", "onClick: " + list.size());
 
                         editTextIngredientName.getText().clear();
                         editTextIngredientQuantity.getText().clear();
@@ -539,12 +524,10 @@ public class CreateRecipeActivity extends AppCompatActivity {
             imageViewAddImage.setMaxWidth(20);
             imageViewAddImage.setMaxHeight(20);
             // glide will follow imageview's width, height and scaleType
-/*
             Glide.with(this)
                     .load(imageURI)
                     .centerCrop()
                     .into(imageViewAddImage);
-*/
             try {
                 image = MediaStore.Images.Media.getBitmap(context.getContentResolver(),imageURI);
             } catch (IOException e) {
@@ -555,12 +538,10 @@ public class CreateRecipeActivity extends AppCompatActivity {
         }
         else {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-/*
             Glide.with(this)
                     .load(bitmap)
                     .centerCrop()
                     .into(imageViewAddImage);
-*/
             image = bitmap;
         }
     }
