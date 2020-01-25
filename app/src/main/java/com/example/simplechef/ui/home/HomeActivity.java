@@ -42,7 +42,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         context = this;
-        // Activity activity = (Activity) getApplicationContext();
         view = ((HomeActivity) context).view;
 
         viewPager = findViewById(R.id.pager);

@@ -1,5 +1,6 @@
 package com.example.simplechef.ui.login;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
 import com.example.simplechef.ui.home.HomeActivity;
 
@@ -64,8 +65,57 @@ public class LoginActivity extends AppCompatActivity {
         // initialize auth
         mAuth = FirebaseAuth.getInstance();
 
-        setupUiElements();
-        setupImages();
+        buttonLogIn = findViewById(R.id.buttonLogIn);
+        buttonFacebookLogin = findViewById(R.id.buttonFacebookLogin);
+        buttonGoogleLogin = findViewById(R.id.buttonGoogleLogin);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
+        textViewEmail = findViewById(R.id.textViewEmail);
+        textViewPassword = findViewById(R.id.textViewPassword);
+        imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
+
+        // button listeners
+        buttonLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = textViewEmail.getText().toString();
+                String password = textViewPassword.getText().toString();
+
+                if (email.equals("") || password.equals("")){
+                    Toast.makeText(getApplicationContext(), "Error, make sure you entered data", Toast.LENGTH_SHORT).show();
+                }else
+                    signInWithEmailandPassword(email, password);
+
+            }
+        });
+
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+            }
+        });
+
+        buttonFacebookLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signInFacebook();
+            }
+        });
+
+        buttonGoogleLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signInGoogle();
+            }
+        });
+
+
+
+        Glide.with(this)
+                .load(R.drawable.login_background)
+                .centerCrop()
+                .into(imageViewBackground);
+
 
     }
 
@@ -102,70 +152,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    public void setupUiElements() {
-        buttonLogIn = findViewById(R.id.buttonLogIn);
-        buttonFacebookLogin = findViewById(R.id.buttonFacebookLogin);
-        buttonGoogleLogin = findViewById(R.id.buttonGoogleLogin);
-        buttonSignUp = findViewById(R.id.buttonSignUp);
-        textViewEmail = findViewById(R.id.textViewEmail);
-        textViewPassword = findViewById(R.id.textViewPassword);
-        imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
 
-        // button listeners
-        buttonLogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = textViewEmail.getText().toString();
-                String password = textViewPassword.getText().toString();
-
-                if (email.equals("") || password.equals("")){
-                    Toast.makeText(getApplicationContext(), "Error, make sure you entered data", Toast.LENGTH_SHORT).show();
-                }else
-                signInWithEmailandPassword(email, password);
-
-            }
-        });
-
-        buttonSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
-            }
-        });
-
-        buttonFacebookLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signInFacebook();
-            }
-        });
-
-        buttonGoogleLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signInGoogle();
-            }
-        });
-    }
-
-    private void setupImages() {
-
-        Picasso.get()
-                .load(R.drawable.login_background)
-                .resize(1920,500)
-                .centerInside()
-                .into(imageViewBackground);
-
-
-        //imageViewBackground.setImageResource(R.drawable.login_background);
-/*
-        GlideApp
-                .with(this)
-                .load(R.drawable.login_background)
-                .centerCrop()
-                .into(imageViewBackground);
-*/
-    }
 
     public void signInGoogle() {
         // Configure Google Sign In

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.ui.login.LoginActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -72,6 +73,7 @@ public class AccountActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 Bitmap bitmap = (Bitmap) extras.get("data");
@@ -94,22 +96,18 @@ public class AccountActivity extends AppCompatActivity {
             mPhotoURL = mCurrentUser.getPhotoUrl().toString();
 
 
-/*
-            GlideApp
+            Glide
                     .with(this)
                     .load(mPhotoURL)
                     .centerCrop()
                     .into(imageButtonPhoto);
-*/
         } else {
-/*
-            GlideApp
+            Glide
                     .with(this)
                     .load(R.drawable.no_photo)
                     .centerCrop()
                     .into(imageButtonPhoto);
 
- */
         }
 
     }
@@ -134,14 +132,12 @@ public class AccountActivity extends AppCompatActivity {
 
     private void setupBGImage() {
         // Glide handles auto-scaling images down to proper resolution
-/*
-        GlideApp
+        Glide
                 .with(this)
                 .load(R.drawable.signup_background)
                 .centerCrop()
                 .into(imageViewBackground);
 
-*/
     }
 
     private void addProfilePictureToFirebase(final Bitmap bitmap) {
@@ -165,13 +161,11 @@ public class AccountActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Log.d(TAG, "Success uploading file");
 
-/*
-                GlideApp
+                Glide
                         .with(getApplicationContext())
                         .load(bitmap)
                         .centerCrop()
                         .into(imageButtonPhoto);
-*/
 
 
                 profilePicturesRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

@@ -13,11 +13,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -53,12 +55,11 @@ public class ViewDescriptionFragment extends Fragment {
         recipePictureReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-/*
+
                 Glide.with(getContext())
                         .load(uri)
                         .centerCrop()
                         .into(imageViewImage);
-*/
                 Log.d("SUCCESS", uri.toString());
 
 

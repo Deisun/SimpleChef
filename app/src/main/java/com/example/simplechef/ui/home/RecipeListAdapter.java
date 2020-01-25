@@ -1,13 +1,7 @@
 package com.example.simplechef.ui.home;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-/*
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-*/
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,15 +12,14 @@ import android.widget.TextView;
 import android.widget.Filter;
 import android.widget.Filterable;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
 import com.example.simplechef.RecipeClass;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
-import java.net.URL;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +80,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         //Getting object for Recipe
         RecipeClass currentRecipe = recipes.get(position);
         holder.recipeName.setText(currentRecipe.getName());
-        holder.recipeCost.setText(formatter.format(currentRecipe.getCost()));
         holder.recipeDescription.setText(currentRecipe.getDescription());
 
 
@@ -99,17 +91,10 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             public void onSuccess(Uri uri) {
 
 
-                Picasso.get()
-                        .load(uri)
-                        .into(holder.recipeImage);
-
-
-/*
                 Glide.with(context)
                         .load(uri)
                         .centerCrop()
                         .into(holder.recipeImage);
-*/
                 Log.d("SUCCESS", uri.toString());
 
 
@@ -149,7 +134,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     }
 
     public class RecipeHolder extends RecyclerView.ViewHolder {
-        public TextView recipeName, recipeCost, recipeDescription;
+        public TextView recipeName, recipeDescription;
         public ImageView recipeImage;
         public ImageButton recipeAddToFavorites;
 
@@ -158,7 +143,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             context = itemView.getContext();
             view = itemView;
             recipeName = itemView.findViewById(R.id.textViewRecipeName);
-            recipeCost = itemView.findViewById(R.id.textViewRecipeCost);
             recipeDescription = itemView.findViewById(R.id.textViewRecipeDescription);
             recipeImage = itemView.findViewById(R.id.imageViewRecipeImage);
             recipeAddToFavorites = itemView.findViewById(R.id.imageButtonFavorite);

@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     private static final String TAG = "ViewPagerAdapter";
-    private String [] tabTitles = new String [] { "Recipes", "Favorites", "My Recipes"};
+    private String [] tabTitles = new String [] { "All Recipes", "Favorites", "My Recipes"};
     boolean isSecond = false;
 
     public int getSelected() {
@@ -34,6 +34,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public AllRecipesFragment allRecipesFragment = AllRecipesFragment.newInstance();
     public FavoriteRecipesFragment favoriteRecipesFragment = FavoriteRecipesFragment.newInstance();
     public MyRecipesFragment myRecipesFragment = MyRecipesFragment.newInstance();
+
     @Override
     public Fragment getItem(int position) {
         switch(position) {
