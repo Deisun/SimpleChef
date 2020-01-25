@@ -1,5 +1,6 @@
 package com.example.simplechef.ui.login;
 
+import com.bumptech.glide.Glide;
 import com.example.simplechef.ui.home.HomeActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -67,13 +68,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void setupImages() {
         // Glide handles auto-scaling images down to proper resolution
-/*
-        GlideApp
+        Glide
                 .with(this)
                 .load(R.drawable.signup_background)
                 .centerCrop()
                 .into(imageViewBackground);
-*/
     }
 
     private void setupUiElements() {
