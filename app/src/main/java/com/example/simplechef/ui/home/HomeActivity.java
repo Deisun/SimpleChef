@@ -25,9 +25,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 public class HomeActivity extends AppCompatActivity {
-
+    private static final String TAG = "HomeActivity";
     private BottomNavigationView bottomNavigationView;
-    private final static String TAG = "HomeActivity";
     private EditText editTextSearchPopUp;
     private Context context;
     private View view;
