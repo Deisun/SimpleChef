@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +54,21 @@ public class AccountActivity extends AppCompatActivity {
         textViewEmail = findViewById(R.id.textViewEmail);
         imageButtonPhoto = findViewById(R.id.imageButtonProfilePic);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TextView toolbarTitle = (TextView)findViewById(R.id.toolbarTitle);
+        toolbarTitle.setText("Profile");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
+
         imageButtonPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +79,6 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
-        setupToolbar();
         setUserDataAndPhoto();
     }
 
@@ -92,8 +105,6 @@ public class AccountActivity extends AppCompatActivity {
         // sets photo from URL
         if (mCurrentUser.getPhotoUrl() != null) {
             mPhotoURL = mCurrentUser.getPhotoUrl().toString();
-
-
             Glide
                     .with(this)
                     .load(mPhotoURL)
@@ -107,32 +118,11 @@ public class AccountActivity extends AppCompatActivity {
                     .into(imageButtonPhoto);
 
         }
-
     }
-
-    private void setupToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView toolbarTitle = (TextView)findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("Profile");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-
-            }
-        });
-    }
-
 
     private void addProfilePictureToFirebase(final Bitmap bitmap) {
         final FirebaseStorage storage = FirebaseStorage.getInstance();
         final StorageReference profilePicturesRef = storage.getReference().child("Users/" + mCurrentUser.getUid() + "/profile_pic.jpg");
-
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);

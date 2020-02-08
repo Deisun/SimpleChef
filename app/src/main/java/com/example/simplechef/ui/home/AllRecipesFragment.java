@@ -33,7 +33,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AllRecipesFragment extends Fragment {
     private static final String TAG = "AllRecipesFragment";
-    //Firebase
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     final FirebaseAuth currentUser = FirebaseAuth.getInstance();
     final DocumentReference docRef = db.collection("Users").document(currentUser.getUid());
@@ -46,9 +45,6 @@ public class AllRecipesFragment extends Fragment {
         AllRecipesFragment fragment = new AllRecipesFragment();
         return fragment;
     }
-    public void search(String string){
-        recipeListAdapter.onSearchRecieved(string);
-    }
 
 
     @Nullable
@@ -60,9 +56,6 @@ public class AllRecipesFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_home_recipe_list, container, false);
         //Get Favorites List
         initiateFavoritesList();
-
-        //Access NoSql Database
-        //DocumentReference docRef = db.collection("Recipe").document("4S0ycFz9A05IWKs3249d");
 
         //Get Info from Recipe Collection
         db.collection("Recipes")
@@ -96,10 +89,7 @@ public class AllRecipesFragment extends Fragment {
                     recipeListAdapter.setOnItemClickListener(new RecipeListAdapter.OnRecipeItemClickListener() {
                         @Override
                         public void onItemClick(int position) {
-                            /*Intent intent = new Intent(getActivity(), ViewRecipeActivity.class);*/
                             Intent intent = recipeList.get(position).toIntent(getActivity(), ViewRecipeActivity.class);
-
-
                             startActivity(intent);
                         }
 
