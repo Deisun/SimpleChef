@@ -84,6 +84,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
 
         //Adding Image to Recycler view item
+
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference recipePictureReference = storage.getReference().child(currentRecipe.getImage());
         recipePictureReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

@@ -68,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
         // initialize auth
         mAuth = FirebaseAuth.getInstance();
 
+
+
         buttonLogIn = findViewById(R.id.buttonLogIn);
         buttonFacebookLogin = findViewById(R.id.buttonFacebookLogin);
         buttonGoogleLogin = findViewById(R.id.buttonGoogleLogin);

@@ -6,10 +6,10 @@
         <item name="colorPrimary">@color/colorGrey</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarker</item>
         <item name="colorAccent">@color/colorAccentDarker</item>
+        <item name="android:statusBarColor">@color/colorGreyDarkest</item>
 
 
 
-        <item name="android:windowTranslucentStatus">true</item>
 
 
     </style>
@@ -18,9 +18,11 @@
         <item name="android:background">@color/colorAccent</item>
     </style>
 
+<!--
     <style name="MenuStyle">
         <item name="android:background">@color/colorWhite</item>
     </style>
+-->
 
 
 
