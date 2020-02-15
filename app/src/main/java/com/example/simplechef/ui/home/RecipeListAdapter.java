@@ -14,7 +14,7 @@ import android.widget.Filterable;
 
 import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
-import com.example.simplechef.RecipeClass;
+import com.example.simplechef.Recipe;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -29,15 +29,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeHolder> implements Filterable{
     private final static String TAG = "RecipeListAdapter";
-    private ArrayList<RecipeClass> recipes;
-    private ArrayList<RecipeClass> recipesFull;
+    private ArrayList<Recipe> recipes;
+    private ArrayList<Recipe> recipesFull;
     private ArrayList<String> favoritesList;
     private OnRecipeItemClickListener mListener;
     private Context context;
     private View view;
 
 
-    RecipeListAdapter(ArrayList<RecipeClass> list, ArrayList<String> favoritesList){
+    RecipeListAdapter(ArrayList<Recipe> list, ArrayList<String> favoritesList){
         this.recipes = list;
         this.favoritesList = favoritesList;
         Log.d("CONSTRUCTOR CALLED", this.recipes.toString());
@@ -78,7 +78,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
         //Getting object for Recipe
-        RecipeClass currentRecipe = recipes.get(position);
+        Recipe currentRecipe = recipes.get(position);
         holder.recipeName.setText(currentRecipe.getName());
         holder.recipeDescription.setText(currentRecipe.getDescription());
 
@@ -190,15 +190,15 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         public Filter exampleFilter = new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-                ArrayList<RecipeClass> filteredList = new ArrayList<>();
-                ArrayList<RecipeClass> extra = new ArrayList<>();
+                ArrayList<Recipe> filteredList = new ArrayList<>();
+                ArrayList<Recipe> extra = new ArrayList<>();
                 Log.d(TAG, "performFiltering: " + constraint);
                 if (constraint == null || constraint.length() == 0) {
                     filteredList.addAll(recipes);
                 } else {
                     String filterPattern = constraint.toString().toLowerCase().trim();
 
-                    for (RecipeClass item : recipes) {
+                    for (Recipe item : recipes) {
                         if (item.getName().toLowerCase().contains(filterPattern.toLowerCase())) {
                             filteredList.add(item);
                         }
@@ -210,7 +210,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 */
                     }
 
-                    for (RecipeClass item : extra){
+                    for (Recipe item : extra){
                         filteredList.add(item);
                     }
                 }

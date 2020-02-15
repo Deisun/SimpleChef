@@ -37,7 +37,7 @@ import com.bumptech.glide.Glide;
 import com.example.simplechef.Ingredient;
 import com.example.simplechef.R;
 import com.example.simplechef.RecipeAPI;
-import com.example.simplechef.RecipeClass;
+import com.example.simplechef.Recipe;
 import com.example.simplechef.ui.account.AccountActivity;
 import com.example.simplechef.ui.home.HomeActivity;
 import com.example.simplechef.ui.login.LoginActivity;
@@ -75,7 +75,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
     private ImageView imageViewAddImage;
     private Button buttonUploadImage, buttonTakeImage, buttonAddIngredient, buttonClearAllIngredients;
     private Uri imageURI;
-    private RecipeClass recipeObject = new RecipeClass();
+    private Recipe recipeObject = new Recipe();
     private static final String TAG = "AddRecipe";
     private Bitmap image;
     private Context context;
