@@ -9,17 +9,35 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = Recipe.class, version=1)
-public abstract class RecipeDatabase extends RoomDatabase {
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-    private static RecipeDatabase instance;
+@Database(entities = Recipe.class, version=1)
+public abstract class RecipeRoomDatabase extends RoomDatabase {
 
     public abstract RecipeDao recipeDao();
+    private static volatile RecipeRoomDatabase instance;
+    private static final int NUMBER_OF_THREADS = 4;
+    static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    public static synchronized RecipeDatabase getInstance(Context context) {
+
+    static RecipeRoomDatabase getInstance(final Context context) {
+        if (instance == null) {
+            synchronized (RecipeRoomDatabase.class) {
+                if (instance == null) {
+                    instance = Room.databaseBuilder(context.getApplicationContext(), RecipeRoomDatabase.class, "recipe_database").build();
+                }
+            }
+        }
+        return instance;
+    }
+
+
+/*
+    public static synchronized RecipeRoomDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    RecipeDatabase.class, "recipe_database")
+                    RecipeRoomDatabase.class, "recipe_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build();
@@ -38,7 +56,7 @@ public abstract class RecipeDatabase extends RoomDatabase {
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
         private RecipeDao recipeDao;
 
-        private PopulateDbAsyncTask(RecipeDatabase db) {
+        private PopulateDbAsyncTask(RecipeRoomDatabase db) {
             recipeDao = db.recipeDao();
         }
 
@@ -48,4 +66,5 @@ public abstract class RecipeDatabase extends RoomDatabase {
             return null;
         }
     }
+*/
 }

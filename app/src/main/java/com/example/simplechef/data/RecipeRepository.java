@@ -12,7 +12,7 @@ public class RecipeRepository {
     private LiveData<List<Recipe>> allRecipes;
 
     public RecipeRepository(Application application) {
-        RecipeDatabase database = RecipeDatabase.getInstance(application);
+        RecipeRoomDatabase database = RecipeRoomDatabase.getInstance(application);
         recipeDao = database.recipeDao();
         allRecipes = recipeDao.getAllRecipes();
     }
