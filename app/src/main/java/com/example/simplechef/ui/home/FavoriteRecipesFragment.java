@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simplechef.R;
-import com.example.simplechef.Recipe;
+import com.example.simplechef.RecipeClass;
 import com.example.simplechef.ui.recipe_view.ViewRecipeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,7 +33,7 @@ public class FavoriteRecipesFragment extends Fragment {
     final FirebaseAuth currentUser = FirebaseAuth.getInstance();
     final DocumentReference docRef = db.collection("Users").document(currentUser.getUid());
     private ArrayList<String> favoritesList = new ArrayList<>();
-    private ArrayList<Recipe> recipeObject = new ArrayList<>();
+    private ArrayList<RecipeClass> recipeObject = new ArrayList<>();
 
     private RecipeListAdapter recipeListAdapter;
     private RecyclerView recyclerView;
@@ -66,7 +66,7 @@ public class FavoriteRecipesFragment extends Fragment {
                              db.collection("Recipes").document(favoritesList.get(i)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                  @Override
                                  public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                     Recipe document = documentSnapshot.toObject(Recipe.class);
+                                     RecipeClass document = documentSnapshot.toObject(RecipeClass.class);
                                      recipeObject.add(document);
                                      Log.d("FAVORITE ITEMS", document.getID());
 

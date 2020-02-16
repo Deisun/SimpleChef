@@ -6,7 +6,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class Recipe {
+public class RecipeClass {
 
     private ArrayList<Ingredient> ingredientList = new ArrayList<>();
     private String ID, name, description, time, steps;
@@ -15,11 +15,11 @@ public class Recipe {
 
 
     //Constructor
-    public Recipe() {
+    public RecipeClass() {
 
     }
     //Constructor
-    public Recipe(String ID, String name, String description, String steps) {
+    public RecipeClass(String ID, String name, String description, String steps) {
         this.ID = ID;
         this.name = name;
         this.description = description;

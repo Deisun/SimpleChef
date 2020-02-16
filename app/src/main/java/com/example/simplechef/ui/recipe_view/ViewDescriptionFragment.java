@@ -49,7 +49,7 @@ public class ViewDescriptionFragment extends Fragment {
         textViewCost.setText(bundle.getString("cost"));
         textViewTime.setText(bundle.getString("time"));
 
-        //Recipe Image
+        //RecipeClass Image
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference recipePictureReference = storage.getReference().child(bundle.getString("image"));
         recipePictureReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

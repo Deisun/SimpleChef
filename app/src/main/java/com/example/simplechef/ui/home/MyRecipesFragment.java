@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simplechef.R;
-import com.example.simplechef.Recipe;
+import com.example.simplechef.RecipeClass;
 import com.example.simplechef.ui.recipe_view.ViewRecipeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,7 +38,7 @@ public class MyRecipesFragment extends Fragment {
     private static final String TAG = "MyRecipesFragment";
 
     private ArrayList<String> myRecipes = new ArrayList<>();
-    private ArrayList<Recipe> myRecipeObjects = new ArrayList<>();
+    private ArrayList<RecipeClass> myRecipeObjects = new ArrayList<>();
     //Recycler View
     RecipeListAdapter recipeListAdapter;
     RecyclerView recyclerView;
@@ -80,7 +80,7 @@ public class MyRecipesFragment extends Fragment {
                             db.collection("Recipes").document(myRecipes.get(i)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                    Recipe document = documentSnapshot.toObject(Recipe.class);
+                                    RecipeClass document = documentSnapshot.toObject(RecipeClass.class);
                                     myRecipeObjects.add(document);
                                     Log.d("MYITEMS", document.getID());
 
