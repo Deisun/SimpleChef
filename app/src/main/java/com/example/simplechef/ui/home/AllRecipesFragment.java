@@ -1,6 +1,7 @@
 package com.example.simplechef.ui.home;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -23,8 +24,8 @@ public class AllRecipesFragment extends Fragment {
 
         allRecipesViewModel = new ViewModelProvider(this).get(AllRecipesViewModel.class);
         allRecipesViewModel.getRecipes().observe(this, recipes -> {
-            // update UI
+            // update RecyclerView
+            Toast.makeText(getActivity(), "onChanged", Toast.LENGTH_LONG).show();
         });
-
     }
 }
