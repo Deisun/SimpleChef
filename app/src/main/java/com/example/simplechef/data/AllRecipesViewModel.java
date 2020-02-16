@@ -1,26 +1,23 @@
 package com.example.simplechef.data;
 
-import android.app.Application;
 
+import android.app.Application;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-public class AllRecipesViewModel extends ViewModel {
+public class AllRecipesViewModel extends AndroidViewModel {
     private RecipeRepository repository;
     private LiveData<List<Recipe>> recipes;
 
-/*
-    public AllRecipesViewModel(@NonNull Application application) {
+    public AllRecipesViewModel(Application application) {
         super(application);
         repository = new RecipeRepository(application);
         recipes = repository.getAllRecipes();
     }
-*/
 
     public LiveData<List<Recipe>> getRecipes() {
         if (recipes == null) {
