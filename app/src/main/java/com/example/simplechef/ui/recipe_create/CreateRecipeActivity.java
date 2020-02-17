@@ -174,36 +174,36 @@ public class CreateRecipeActivity extends AppCompatActivity {
                 Boolean isValidInput = true;
 
                 if (recipeName.isEmpty()) {
-                    inputProblems.add("Recipe name is missing");
+                    inputProblems.add("RecipeClass name is missing");
                     isValidInput = false;
                 }
                 if (recipeDescription.isEmpty()) {
-                    inputProblems.add("Recipe description is missing");
+                    inputProblems.add("RecipeClass description is missing");
                     isValidInput = false;
                 }
                 if (recipeCost.isEmpty()) {
-                    inputProblems.add("Recipe cost is missing");
+                    inputProblems.add("RecipeClass cost is missing");
                     isValidInput = false;
                 }
                 if(!recipeCost.isEmpty()) {
                     if (Double.valueOf(recipeCost) > 15.0) {
-                        inputProblems.add("Recipe cost is above $15 limit");
+                        inputProblems.add("RecipeClass cost is above $15 limit");
                         isValidInput = false;
                     }
                 }
 
                 if (recipeTime.isEmpty()) {
-                    inputProblems.add("Recipe time is missing");
+                    inputProblems.add("RecipeClass time is missing");
                     isValidInput = false;
                 }
 
                 if (recipeObject.getIngredientList().size() == 0) {
-                    inputProblems.add("Recipe ingredients are missing");
+                    inputProblems.add("RecipeClass ingredients are missing");
                     isValidInput = false;
                 }
 
                 if (recipeDirections.isEmpty()) {
-                    inputProblems.add("Recipe directions are missing");
+                    inputProblems.add("RecipeClass directions are missing");
                     isValidInput = false;
                 }
 
@@ -230,9 +230,9 @@ public class CreateRecipeActivity extends AppCompatActivity {
                     //Adding recipes
                     newRecipeRef.set(recipeObject);
 
-                    Toast.makeText(context, "Recipe created!", Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, "Recipe added with id: " + recipeID);
-                    //Mapping Recipe to user
+                    Toast.makeText(context, "RecipeClass created!", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "RecipeClass added with id: " + recipeID);
+                    //Mapping RecipeClass to user
                     final HashMap<String, Object> data = new HashMap<>();
                     data.put("MyRecipes", FieldValue.arrayUnion(recipeID));
                     final DocumentReference newUserRef = db.collection("Users").document(currentUser.getUid());
@@ -262,7 +262,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
                     startActivity(myIntent);
                 } else {
                     // input is not valid, send list of messages to Dialog and display them
-                    Toast.makeText(context, "Failed to Create Recipe", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to Create RecipeClass", Toast.LENGTH_SHORT).show();
 
                     CreateRecipeAlertDialogFragment dialogFragment = CreateRecipeAlertDialogFragment.newInstance(inputProblems);
                     dialogFragment.show(getSupportFragmentManager(), "dialog");
@@ -428,7 +428,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
     private void setupToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         TextView toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("Add Recipe");
+        toolbarTitle.setText("Add RecipeClass");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -474,7 +474,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
     }
     private void getWindowObjects(){
 
-        // Recipe
+        // RecipeClass
         editTextRecipeName = (EditText) findViewById(R.id.editTextRecipeName);
         editTextRecipeTime = (EditText) findViewById(R.id.editTextRecipeTime);
         editTextRecipeCost = (EditText) findViewById(R.id.editTextRecipeCost);
@@ -513,7 +513,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
     }
 
 
-    //Adding an Image to New Recipe
+    //Adding an Image to New RecipeClass
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

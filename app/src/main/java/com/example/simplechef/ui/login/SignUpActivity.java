@@ -1,6 +1,5 @@
 package com.example.simplechef.ui.login;
 
-import com.bumptech.glide.Glide;
 import com.example.simplechef.ui.home.HomeActivity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -9,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.simplechef.R;
@@ -28,14 +26,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class SignUpActivity extends AppCompatActivity {
+    private static final String TAG = "SignUpActivity";
     private Button buttonSignUp;
     private EditText editTextEmail;
     private EditText editTextPassword;
     private EditText editTextUsername;
-    private ImageView imageViewBackground;
-    private FirebaseFirestore db;
     private FirebaseAuth mAuth;
-    private final static String TAG = "SignUpActivity";
     private ConstraintLayout constraintLayout;
     private AnimationDrawable animationDrawable;
 
@@ -44,10 +40,8 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        //imageViewBackground = findViewById(R.id.imageViewBackground);
         buttonSignUp = findViewById(R.id.buttonSignUp);
         editTextEmail = findViewById(R.id.textViewEmail);
         editTextPassword =findViewById(R.id.textViewPassword);
@@ -73,7 +67,6 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-
             }
         });
 
@@ -81,37 +74,13 @@ public class SignUpActivity extends AppCompatActivity {
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
-
-
                 createAccount(email, password);
-
             }
         });
 
-       // setupToolbar();
     }
-
-    private void setupToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView toolbarTitle = (TextView)findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("Sign Up");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-
-            }
-        });
-    }
-
 
     public void createAccount(String email, String password) {
         Log.d(TAG, "Create Account:"+email);

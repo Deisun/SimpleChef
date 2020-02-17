@@ -77,7 +77,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         Log.d(TAG, "onBindViewHolder:  called.");
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
-        //Getting object for Recipe
+        //Getting object for RecipeClass
         RecipeClass currentRecipe = recipes.get(position);
         holder.recipeName.setText(currentRecipe.getName());
         holder.recipeDescription.setText(currentRecipe.getDescription());

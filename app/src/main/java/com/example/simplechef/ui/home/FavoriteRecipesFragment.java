@@ -2,13 +2,6 @@ package com.example.simplechef.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-/*
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import androidx.core.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-*/
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,26 +28,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FavoriteRecipesFragment extends Fragment {
-
+    private static final String TAG = "FavoriteRecipesFragment";
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     final FirebaseAuth currentUser = FirebaseAuth.getInstance();
     final DocumentReference docRef = db.collection("Users").document(currentUser.getUid());
     private ArrayList<String> favoritesList = new ArrayList<>();
     private ArrayList<RecipeClass> recipeObject = new ArrayList<>();
-    //Recycler View
+
     private RecipeListAdapter recipeListAdapter;
     private RecyclerView recyclerView;
     private View fragView;
-
 
     public static FavoriteRecipesFragment newInstance() {
         FavoriteRecipesFragment fragment = new FavoriteRecipesFragment();
         return fragment;
     }
 
-    public void onSearch(String search){
-        /*recipeListAdapter.onSearchRecieved(search);*/
-    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -125,10 +114,4 @@ public class FavoriteRecipesFragment extends Fragment {
 
         return view;
     }
-
-    public void removeFavorite(int position) {
-        favoritesList.remove(position);
-        recipeListAdapter.notifyDataSetChanged();
-    }
-
 }

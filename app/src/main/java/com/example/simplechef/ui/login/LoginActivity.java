@@ -1,6 +1,5 @@
 package com.example.simplechef.ui.login;
 
-import com.bumptech.glide.Glide;
 import com.example.simplechef.R;
 import com.example.simplechef.ui.home.HomeActivity;
 
@@ -46,11 +45,10 @@ import java.util.Arrays;
 
 
 public class LoginActivity extends AppCompatActivity {
-
+    private static final String TAG = "LoginActivity";
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
     private Button buttonLogIn, buttonSignUp, buttonGoogleLogin, buttonFacebookLogin;
-    private ImageView imageViewBackground;
     private TextView textViewEmail, textViewPassword;
     private ConstraintLayout constraintLayout;
     private AnimationDrawable animationDrawable;
@@ -58,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private CallbackManager mCallbackManager;
     private static final int RC_SIGN_IN = 9001;
-    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +65,12 @@ public class LoginActivity extends AppCompatActivity {
         // initialize auth
         mAuth = FirebaseAuth.getInstance();
 
-
-
         buttonLogIn = findViewById(R.id.buttonLogIn);
         buttonFacebookLogin = findViewById(R.id.buttonFacebookLogin);
         buttonGoogleLogin = findViewById(R.id.buttonGoogleLogin);
         buttonSignUp = findViewById(R.id.buttonSignUp);
         textViewEmail = findViewById(R.id.textViewEmail);
         textViewPassword = findViewById(R.id.textViewPassword);
-        //imageViewBackground = (ImageView)findViewById(R.id.imageViewBackground);
 
         constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
         animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
@@ -119,8 +113,6 @@ public class LoginActivity extends AppCompatActivity {
                 signInGoogle();
             }
         });
-
-
     }
 
     @Override
