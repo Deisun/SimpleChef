@@ -60,6 +60,7 @@ dependencies {
 
     // Rooms
     implementation "androidx.room:room-runtime:$room_version"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     annotationProcessor "androidx.room:room-compiler:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
 
@@ -90,7 +91,6 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'com.github.bumptech.glide:glide:4.10.0'
-
 
 
     // Not sure?

@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = Recipe.class, version=1)
+@Database(entities = {Recipe.class}, version=1, exportSchema = false)
 public abstract class RecipeRoomDatabase extends RoomDatabase {
 
     public abstract RecipeDao recipeDao();
