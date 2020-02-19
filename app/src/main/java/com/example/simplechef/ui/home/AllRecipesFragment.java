@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,7 +47,8 @@ public class AllRecipesFragment extends Fragment {
         allRecipesViewModel = new ViewModelProvider(this).get(AllRecipesViewModel.class);
         allRecipesViewModel.getRecipes().observe(this, recipes -> {
             // update RecyclerView
-            adapter.notifyDataSetChanged();
+            adapter.setRecipes(recipes);
+            Toast.makeText(getContext(), "HELLO WORLD", Toast.LENGTH_LONG).show();
 
         });
     }
