@@ -18,6 +18,7 @@ import com.example.simplechef.data.AllRecipesViewModel;
 public class AllRecipesFragment extends Fragment {
     private static final String TAG = "AllRecipesFragment";
     private AllRecipesViewModel allRecipesViewModel;
+    private AllRecipesListAdapter adapter;
 
     public static AllRecipesFragment newInstance() {
         AllRecipesFragment fragment = new AllRecipesFragment();
@@ -30,7 +31,7 @@ public class AllRecipesFragment extends Fragment {
         View view = inflater.inflate(R.layout.allrecipes_recyclerview, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.allrecipes_recyclerview);
-        final AllRecipesListAdapter adapter= new AllRecipesListAdapter(getContext());
+        adapter= new AllRecipesListAdapter(getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -45,6 +46,7 @@ public class AllRecipesFragment extends Fragment {
         allRecipesViewModel = new ViewModelProvider(this).get(AllRecipesViewModel.class);
         allRecipesViewModel.getRecipes().observe(this, recipes -> {
             // update RecyclerView
+            adapter.notifyDataSetChanged();
 
         });
     }

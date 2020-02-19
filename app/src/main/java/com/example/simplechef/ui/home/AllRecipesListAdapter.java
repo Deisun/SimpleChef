@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplechef.R;
@@ -18,11 +17,11 @@ import java.util.List;
 public class AllRecipesListAdapter extends RecyclerView.Adapter<AllRecipesListAdapter.AllRecipesViewHolder> {
 
     class AllRecipesViewHolder extends RecyclerView.ViewHolder {
-        private final TextView recipeItemView;
+        private final TextView allRecipeItemView;
 
         private AllRecipesViewHolder(View itemView) {
             super(itemView);
-            recipeItemView = itemView.findViewById(R.id.textView);
+            allRecipeItemView = itemView.findViewById(R.id.textView);
         }
     }
 
@@ -43,9 +42,9 @@ public class AllRecipesListAdapter extends RecyclerView.Adapter<AllRecipesListAd
     public void onBindViewHolder(AllRecipesViewHolder holder, int position) {
         if (mRecipes != null) {
             Recipe current = mRecipes.get(position);
-            holder.recipeItemView.setText(current.getTitle());
+            holder.allRecipeItemView.setText(current.getTitle());
         } else {
-            holder.recipeItemView.setText("No recipes yet");
+            holder.allRecipeItemView.setText("No recipes yet");
         }
     }
 
