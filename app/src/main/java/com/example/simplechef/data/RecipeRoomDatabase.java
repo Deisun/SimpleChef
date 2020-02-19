@@ -25,12 +25,32 @@ public abstract class RecipeRoomDatabase extends RoomDatabase {
         if (instance == null) {
             synchronized (RecipeRoomDatabase.class) {
                 if (instance == null) {
-                    instance = Room.databaseBuilder(context.getApplicationContext(), RecipeRoomDatabase.class, "recipe_database").build();
+                    instance = Room.databaseBuilder(context.getApplicationContext(), RecipeRoomDatabase.class, "recipe_database")
+                            .addCallback(sRecipeRoomDatabaseCallback)
+                            .build();
                 }
             }
         }
         return instance;
     }
+
+    private static RecipeRoomDatabase.Callback sRecipeRoomDatabaseCallback = new RecipeRoomDatabase.Callback() {
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
+
+            databaseWriteExecutor.execute(()-> {
+                RecipeDao dao = instance.recipeDao();
+
+                Recipe recipe = new Recipe("My first recipe", "Description 1");
+                dao.insert(recipe);
+                recipe = new Recipe("Another recipe!", "Description 2");
+                dao.insert(recipe);
+                recipe = new Recipe("Third recipe", "Description 3");
+                dao.insert(recipe);
+            });
+        }
+    };
 
 
 /*
