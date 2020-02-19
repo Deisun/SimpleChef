@@ -1,6 +1,5 @@
 package com.example.simplechef.ui.home;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,13 +27,19 @@ public class AllRecipesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.allrecipes_recyclerview_item, container, false);
+        View view = inflater.inflate(R.layout.allrecipes_recyclerview, container, false);
 
-        Context context = view.getContext();
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        final AllRecipesListAdapter adapter = new AllRecipesListAdapter(context);
+        RecyclerView recyclerView = view.findViewById(R.id.allrecipes_recyclerview);
+        final AllRecipesListAdapter adapter= new AllRecipesListAdapter(getContext());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
 
         allRecipesViewModel = new ViewModelProvider(this).get(AllRecipesViewModel.class);
@@ -42,7 +47,5 @@ public class AllRecipesFragment extends Fragment {
             // update RecyclerView
 
         });
-
-        return view;
     }
 }
