@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,13 +42,10 @@ public class AllRecipesFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
         allRecipesViewModel = new ViewModelProvider(this).get(AllRecipesViewModel.class);
-        allRecipesViewModel.getRecipes().observe(this, recipes -> {
+        allRecipesViewModel.getRecipes().observe(getViewLifecycleOwner(), recipes -> {
             // update RecyclerView
             adapter.setRecipes(recipes);
-            Toast.makeText(getContext(), "HELLO WORLD", Toast.LENGTH_LONG).show();
-
         });
     }
 }
