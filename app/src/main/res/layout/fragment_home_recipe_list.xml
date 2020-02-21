@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:fitsSystemWindows="true"
+    android:fitsSystemWindows="true">
+<!--
     android:paddingTop="105dp"
     android:paddingBottom="50dp"
-    >
+-->
 
         <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
