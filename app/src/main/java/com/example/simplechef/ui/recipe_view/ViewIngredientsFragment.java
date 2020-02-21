@@ -35,12 +35,14 @@ public class ViewIngredientsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_view_ingredients, container, false);
 
+/*
         //imageViewIngredientImage = view.findViewById(R.id.imageViewIngredientImage);
         //textViewIngredientName = view.findViewById(R.id.textViewIngredientName);
         //textViewIngredientQuantitiy = view.findViewById(R.id.textViewIngredientQuantity);
         vertical = (LinearLayout) view.findViewById(R.id.LinearLayoutViewRecipeVertical);
         //vertical.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
+*/
 /*
         for (int i = 0; bundle.getString("IngredientsName" + i) != null; i++){
             Glide.with(getContext())
@@ -51,7 +53,8 @@ public class ViewIngredientsFragment extends Fragment {
             textViewIngredientName.setText(bundle.getString("IngredientsName" + i));
 
         }
-*/
+*//*
+
         Bundle bundle = getArguments();
         for (int i = 0; bundle.getString("IngredientsName" + i) != null; i++){
             LinearLayout horizontal = new LinearLayout(getContext());
@@ -92,6 +95,7 @@ public class ViewIngredientsFragment extends Fragment {
 
             vertical.addView(horizontal);
         }
+*/
 
 
         // Inflate the layout for this fragment

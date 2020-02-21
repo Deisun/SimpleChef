@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // initialize auth
         mAuth = FirebaseAuth.getInstance();
 
         buttonLogIn = findViewById(R.id.buttonLogIn);
@@ -78,7 +77,6 @@ public class LoginActivity extends AppCompatActivity {
         animationDrawable.setEnterFadeDuration(5000);
         animationDrawable.setExitFadeDuration(5000);
 
-        // button listeners
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -3,6 +3,8 @@ package com.example.simplechef.data;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity(tableName = "recipe_table")
 public class Recipe {
 
