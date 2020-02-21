@@ -174,36 +174,36 @@ public class CreateRecipeActivity extends AppCompatActivity {
                 Boolean isValidInput = true;
 
                 if (recipeName.isEmpty()) {
-                    inputProblems.add("RecipeClass name is missing");
+                    inputProblems.add("Recipe name is missing");
                     isValidInput = false;
                 }
                 if (recipeDescription.isEmpty()) {
-                    inputProblems.add("RecipeClass description is missing");
+                    inputProblems.add("Recipe description is missing");
                     isValidInput = false;
                 }
                 if (recipeCost.isEmpty()) {
-                    inputProblems.add("RecipeClass cost is missing");
+                    inputProblems.add("Recipe cost is missing");
                     isValidInput = false;
                 }
                 if(!recipeCost.isEmpty()) {
                     if (Double.valueOf(recipeCost) > 15.0) {
-                        inputProblems.add("RecipeClass cost is above $15 limit");
+                        inputProblems.add("Recipe cost is above $15 limit");
                         isValidInput = false;
                     }
                 }
 
                 if (recipeTime.isEmpty()) {
-                    inputProblems.add("RecipeClass time is missing");
+                    inputProblems.add("Recipe time is missing");
                     isValidInput = false;
                 }
 
                 if (recipeObject.getIngredientList().size() == 0) {
-                    inputProblems.add("RecipeClass ingredients are missing");
+                    inputProblems.add("Recipe ingredients are missing");
                     isValidInput = false;
                 }
 
                 if (recipeDirections.isEmpty()) {
-                    inputProblems.add("RecipeClass directions are missing");
+                    inputProblems.add("Recipe directions are missing");
                     isValidInput = false;
                 }
 
@@ -230,8 +230,8 @@ public class CreateRecipeActivity extends AppCompatActivity {
                     //Adding recipes
                     newRecipeRef.set(recipeObject);
 
-                    Toast.makeText(context, "RecipeClass created!", Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, "RecipeClass added with id: " + recipeID);
+                    Toast.makeText(context, "Recipe created!", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "Recipe added with id: " + recipeID);
                     //Mapping RecipeClass to user
                     final HashMap<String, Object> data = new HashMap<>();
                     data.put("MyRecipes", FieldValue.arrayUnion(recipeID));
@@ -262,7 +262,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
                     startActivity(myIntent);
                 } else {
                     // input is not valid, send list of messages to Dialog and display them
-                    Toast.makeText(context, "Failed to Create RecipeClass", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to Create Recipe", Toast.LENGTH_SHORT).show();
 
                     CreateRecipeAlertDialogFragment dialogFragment = CreateRecipeAlertDialogFragment.newInstance(inputProblems);
                     dialogFragment.show(getSupportFragmentManager(), "dialog");
@@ -428,7 +428,7 @@ public class CreateRecipeActivity extends AppCompatActivity {
     private void setupToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         TextView toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("Add RecipeClass");
+        toolbarTitle.setText("Add Recipe");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -21,7 +21,7 @@ public class AllRecipesListAdapter extends RecyclerView.Adapter<AllRecipesListAd
 
         private AllRecipesViewHolder(View itemView) {
             super(itemView);
-            allRecipeItemView = itemView.findViewById(R.id.textView);
+            allRecipeItemView = itemView.findViewById(R.id.textViewTitle);
         }
     }
 

@@ -85,7 +85,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     private void setupToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         TextView toolbarTitle = (TextView)findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("RecipeClass");
+        toolbarTitle.setText("Recipe");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
